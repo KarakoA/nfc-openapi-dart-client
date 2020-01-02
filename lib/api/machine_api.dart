@@ -29,7 +29,7 @@ class MachineApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

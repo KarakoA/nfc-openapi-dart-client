@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

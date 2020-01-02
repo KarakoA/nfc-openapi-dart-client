@@ -18,7 +18,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.0"}) {
+  ApiClient({this.basePath = "https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.1"}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['api_key'] = ApiKeyAuth("header", "api_key");
   }

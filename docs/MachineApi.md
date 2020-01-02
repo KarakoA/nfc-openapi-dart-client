@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,6 +28,10 @@ Creates a new machine
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: api_key
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKeyPrefix = 'Bearer';
 
 var api_instance = MachineApi();
 var machine = Machine(); // Machine | Machine object that needs to be added
@@ -51,7 +55,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
