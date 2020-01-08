@@ -4,7 +4,7 @@ servers:
 # Added by API Auto Mocking Plugin
 
   - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.1
+    url: https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.2
 info:
   description: |
     An API for the washing machines and dryer in the Aristotelessteig Dormitory for our Project in the course NFC.

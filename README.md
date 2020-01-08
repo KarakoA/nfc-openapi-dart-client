@@ -57,7 +57,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.1*
+All URIs are relative to *https://virtserver.swaggerhub.com/nfcproject/LaundryRoom/1.0.2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
