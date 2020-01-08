@@ -17,6 +17,7 @@ part 'api/user_api.dart';
 
 part 'model/error.dart';
 part 'model/inline_response200.dart';
+part 'model/inline_response2001.dart';
 part 'model/machine.dart';
 part 'model/user.dart';
 

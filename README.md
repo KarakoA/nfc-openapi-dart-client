@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**reservedMachines**](docs//UserApi.md#reservedmachines) | **GET** /user/{userId}/reserved | Check which machines are reserved by the given user
 *UserApi* | [**userBalance**](docs//UserApi.md#userbalance) | **GET** /user/{userId}/balance | Check the user&#39;s balance
 *UserApi* | [**userDeduct**](docs//UserApi.md#userdeduct) | **POST** /user/{userId}/deduct | Charges the user&#39;s account
+*UserApi* | [**userLinkCard**](docs//UserApi.md#userlinkcard) | **POST** /user/{userId}/linkCard | Links the provided card to the user&#39;s account
 *UserApi* | [**userRecharge**](docs//UserApi.md#userrecharge) | **POST** /user/{userId}/recharge | Recharges the user&#39;s account
 
 
@@ -83,6 +84,7 @@ Class | Method | HTTP request | Description
 
  - [Error](docs//Error.md)
  - [InlineResponse200](docs//InlineResponse200.md)
+ - [InlineResponse2001](docs//InlineResponse2001.md)
  - [Machine](docs//Machine.md)
  - [User](docs//User.md)
 

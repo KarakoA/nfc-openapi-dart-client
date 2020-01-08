@@ -42,6 +42,8 @@ class ApiClient {
           return Error.fromJson(value);
         case 'InlineResponse200':
           return InlineResponse200.fromJson(value);
+        case 'InlineResponse2001':
+          return InlineResponse2001.fromJson(value);
         case 'Machine':
           return Machine.fromJson(value);
         case 'User':

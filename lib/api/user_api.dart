@@ -173,12 +173,12 @@ class UserApi {
   /// Find user by card ID
   ///
   /// Returns a single user ID, who is the owner of the card with the given ID.
-  Future<String> getUserByCardId(String cardId) async {
+  Future<InlineResponse2001> getUserByCardId(String cardId) async {
     Response response = await getUserByCardIdWithHttpInfo(cardId);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'String') as String;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'InlineResponse2001') as InlineResponse2001;
     } else {
       return null;
     }
@@ -466,6 +466,67 @@ class UserApi {
   /// Deducts the given amount from the user&#39;s account.
   Future userDeduct(String userId, double amount) async {
     Response response = await userDeductWithHttpInfo(userId, amount);
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+    } else {
+      return;
+    }
+  }
+
+  /// Links the provided card to the user&#39;s account with HTTP info returned
+  ///
+  /// Links the provided card to the user&#39;s account
+  Future userLinkCardWithHttpInfo(String userId, String cardId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(userId == null) {
+     throw ApiException(400, "Missing required param: userId");
+    }
+    if(cardId == null) {
+     throw ApiException(400, "Missing required param: cardId");
+    }
+
+    // create path and map variables
+    String path = "/user/{userId}/linkCard".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "cardId", cardId));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["api_key"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+    return response;
+  }
+
+  /// Links the provided card to the user&#39;s account
+  ///
+  /// Links the provided card to the user&#39;s account
+  Future userLinkCard(String userId, String cardId) async {
+    Response response = await userLinkCardWithHttpInfo(userId, cardId);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {

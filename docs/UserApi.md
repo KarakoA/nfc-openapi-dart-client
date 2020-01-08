@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**reservedMachines**](UserApi.md#reservedMachines) | **GET** /user/{userId}/reserved | Check which machines are reserved by the given user
 [**userBalance**](UserApi.md#userBalance) | **GET** /user/{userId}/balance | Check the user&#39;s balance
 [**userDeduct**](UserApi.md#userDeduct) | **POST** /user/{userId}/deduct | Charges the user&#39;s account
+[**userLinkCard**](UserApi.md#userLinkCard) | **POST** /user/{userId}/linkCard | Links the provided card to the user&#39;s account
 [**userRecharge**](UserApi.md#userRecharge) | **POST** /user/{userId}/recharge | Recharges the user&#39;s account
 
 
@@ -111,7 +112,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserByCardId**
-> String getUserByCardId(cardId)
+> InlineResponse2001 getUserByCardId(cardId)
 
 Find user by card ID
 
@@ -144,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -365,6 +366,54 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | [**String**](.md)| ID of user to update | [default to null]
  **amount** | **double**| Amount to charge | [default to null]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userLinkCard**
+> userLinkCard(userId, cardId)
+
+Links the provided card to the user's account
+
+Links the provided card to the user's account
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: api_key
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKeyPrefix = 'Bearer';
+
+var api_instance = UserApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of user to update
+var cardId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | cardID to link
+
+try { 
+    api_instance.userLinkCard(userId, cardId);
+} catch (e) {
+    print("Exception when calling UserApi->userLinkCard: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**String**](.md)| ID of user to update | [default to null]
+ **cardId** | [**String**](.md)| cardID to link | [default to null]
 
 ### Return type
 
