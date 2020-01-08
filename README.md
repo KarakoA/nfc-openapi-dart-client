@@ -73,6 +73,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**getUserByCardId**](docs//UserApi.md#getuserbycardid) | **GET** /user/findByCardId | Find user by card ID
 *UserApi* | [**getUserById**](docs//UserApi.md#getuserbyid) | **GET** /user/{userId} | Find user by ID
 *UserApi* | [**listUsers**](docs//UserApi.md#listusers) | **GET** /user | Lists all users
+*UserApi* | [**reservedMachines**](docs//UserApi.md#reservedmachines) | **GET** /user/{userId}/reserved | Check which machines are reserved by the given user
 *UserApi* | [**userBalance**](docs//UserApi.md#userbalance) | **GET** /user/{userId}/balance | Check the user&#39;s balance
 *UserApi* | [**userDeduct**](docs//UserApi.md#userdeduct) | **POST** /user/{userId}/deduct | Charges the user&#39;s account
 *UserApi* | [**userRecharge**](docs//UserApi.md#userrecharge) | **POST** /user/{userId}/recharge | Recharges the user&#39;s account

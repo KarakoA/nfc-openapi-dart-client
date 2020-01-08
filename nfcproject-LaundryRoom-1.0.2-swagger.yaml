@@ -31,6 +31,12 @@ paths:
       responses:
         '201':
           description: User created
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uuid
+                example: d290f1ee-6c54-4b01-90e6-d701748f0851
         '405':
           description: Invalid input
         '403':
@@ -173,6 +179,34 @@ paths:
               $ref: '#/components/schemas/Error'
       security:
         - api_key: []
+  '/user/{userId}/reserved':
+    get:
+      tags:
+        - user
+      summary: Check which machines are reserved by the given user
+      description:  Returns the currently reserved machines of the given user.
+      operationId: reservedMachines
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user, whose reserved machines to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: user's reserved machines
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Machine'
+        '400':
+          $ref: '#/components/responses/InvalidId'
+        '404':
+          $ref: '#/components/responses/NotFound'
   '/user/{userId}/balance':
     get:
       tags:
@@ -244,6 +278,12 @@ paths:
       responses:
         '201':
           description: Machine created
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uuid
+                example: d290f1ee-6c54-4b01-90e6-d701748f0851
         '405':
           description: Invalid input
         '403':
@@ -445,8 +485,7 @@ components:
           format: double
           example: 4.50
         pinCode:
-          type: integer
-          format: int32
+          type: string
           example: 123123
       description: A user of the system.
       required:

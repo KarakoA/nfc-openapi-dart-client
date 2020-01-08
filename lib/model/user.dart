@@ -10,7 +10,7 @@ class User {
   
   double balance = null;
   
-  int pinCode = null;
+  String pinCode = null;
   User();
 
   @override

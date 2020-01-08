@@ -297,6 +297,64 @@ class UserApi {
     }
   }
 
+  /// Check which machines are reserved by the given user with HTTP info returned
+  ///
+  /// Returns the currently reserved machines of the given user.
+  Future<Response> reservedMachinesWithHttpInfo(String userId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(userId == null) {
+     throw ApiException(400, "Missing required param: userId");
+    }
+
+    // create path and map variables
+    String path = "/user/{userId}/reserved".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = [];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+    return response;
+  }
+
+  /// Check which machines are reserved by the given user
+  ///
+  /// Returns the currently reserved machines of the given user.
+  Future<List<Machine>> reservedMachines(String userId) async {
+    Response response = await reservedMachinesWithHttpInfo(userId);
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Machine>') as List).map((item) => item as Machine).toList();
+    } else {
+      return null;
+    }
+  }
+
   /// Check the user&#39;s balance with HTTP info returned
   ///
   /// Returns the balance of the given user.

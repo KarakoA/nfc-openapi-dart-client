@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | [default to null]
 **cardId** | **String** |  | [optional] [default to null]
 **balance** | **double** |  | [optional] [default to null]
-**pinCode** | **int** |  | [optional] [default to null]
+**pinCode** | **String** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

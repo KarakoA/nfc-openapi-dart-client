@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getUserByCardId**](UserApi.md#getUserByCardId) | **GET** /user/findByCardId | Find user by card ID
 [**getUserById**](UserApi.md#getUserById) | **GET** /user/{userId} | Find user by ID
 [**listUsers**](UserApi.md#listUsers) | **GET** /user | Lists all users
+[**reservedMachines**](UserApi.md#reservedMachines) | **GET** /user/{userId}/reserved | Check which machines are reserved by the given user
 [**userBalance**](UserApi.md#userBalance) | **GET** /user/{userId}/balance | Check the user&#39;s balance
 [**userDeduct**](UserApi.md#userDeduct) | **POST** /user/{userId}/deduct | Charges the user&#39;s account
 [**userRecharge**](UserApi.md#userRecharge) | **POST** /user/{userId}/recharge | Recharges the user&#39;s account
@@ -238,6 +239,49 @@ This endpoint does not need any parameter.
 ### Authorization
 
 [api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reservedMachines**
+> List<Machine> reservedMachines(userId)
+
+Check which machines are reserved by the given user
+
+Returns the currently reserved machines of the given user.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = UserApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of user, whose reserved machines to return
+
+try { 
+    var result = api_instance.reservedMachines(userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling UserApi->reservedMachines: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**String**](.md)| ID of user, whose reserved machines to return | [default to null]
+
+### Return type
+
+[**List<Machine>**](Machine.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
