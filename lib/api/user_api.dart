@@ -125,6 +125,65 @@ class UserApi {
     }
   }
 
+  /// Find user by card ID with HTTP info returned
+  ///
+  /// Returns a single user ID, who is the owner of the card with the given ID.
+  Future<Response> getUserByCardIdWithHttpInfo(String cardId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(cardId == null) {
+     throw ApiException(400, "Missing required param: cardId");
+    }
+
+    // create path and map variables
+    String path = "/user/findByCardId".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+      queryParams.addAll(_convertParametersForCollectionFormat("", "cardId", cardId));
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["api_key"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+    return response;
+  }
+
+  /// Find user by card ID
+  ///
+  /// Returns a single user ID, who is the owner of the card with the given ID.
+  Future<String> getUserByCardId(String cardId) async {
+    Response response = await getUserByCardIdWithHttpInfo(cardId);
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'String') as String;
+    } else {
+      return null;
+    }
+  }
+
   /// Find user by ID with HTTP info returned
   ///
   /// Returns a single user.

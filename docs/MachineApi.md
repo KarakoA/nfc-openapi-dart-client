@@ -242,7 +242,7 @@ No authorization required
 
 Holds the machine
 
-Holds the machine for the given user for 3 minutes.
+Holds the machine for the given user for 10 minutes.
 
 ### Example 
 ```dart
@@ -288,7 +288,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **machinePay**
-> machinePay(machineId, userId)
+> machinePay(machineId, cardId)
 
 Pay for the given machine
 
@@ -300,10 +300,10 @@ import 'package:openapi/api.dart';
 
 var api_instance = MachineApi();
 var machineId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of the machine to pay
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of the user
+var cardId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of the user's card
 
 try { 
-    api_instance.machinePay(machineId, userId);
+    api_instance.machinePay(machineId, cardId);
 } catch (e) {
     print("Exception when calling MachineApi->machinePay: $e\n");
 }
@@ -314,7 +314,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **machineId** | [**String**](.md)| ID of the machine to pay | [default to null]
- **userId** | [**String**](.md)| ID of the user | [default to null]
+ **cardId** | [**String**](.md)| ID of the user&#39;s card | [default to null]
 
 ### Return type
 

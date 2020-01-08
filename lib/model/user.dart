@@ -4,6 +4,8 @@ class User {
   
   String id = null;
   
+  String email = null;
+  
   String cardId = null;
   
   double balance = null;
@@ -13,12 +15,13 @@ class User {
 
   @override
   String toString() {
-    return 'User[id=$id, cardId=$cardId, balance=$balance, pinCode=$pinCode, ]';
+    return 'User[id=$id, email=$email, cardId=$cardId, balance=$balance, pinCode=$pinCode, ]';
   }
 
   User.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id = json['id'];
+    email = json['email'];
     cardId = json['cardId'];
     balance = (json['balance'] == null) ?
       null :
@@ -30,6 +33,8 @@ class User {
     Map <String, dynamic> json = {};
     if (id != null)
       json['id'] = id;
+    if (email != null)
+      json['email'] = email;
     if (cardId != null)
       json['cardId'] = cardId;
     if (balance != null)

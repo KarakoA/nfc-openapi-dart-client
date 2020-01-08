@@ -2,7 +2,7 @@ part of openapi.api;
 
 class Error {
   
-  String code = null;
+  int code = null;
   
   String reason = null;
   Error();

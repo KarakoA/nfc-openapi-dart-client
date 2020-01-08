@@ -9,6 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] [default to null]
+**email** | **String** |  | [default to null]
 **cardId** | **String** |  | [optional] [default to null]
 **balance** | **double** |  | [optional] [default to null]
 **pinCode** | **int** |  | [optional] [default to null]

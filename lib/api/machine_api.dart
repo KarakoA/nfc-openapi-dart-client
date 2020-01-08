@@ -295,7 +295,7 @@ class MachineApi {
 
   /// Holds the machine with HTTP info returned
   ///
-  /// Holds the machine for the given user for 3 minutes.
+  /// Holds the machine for the given user for 10 minutes.
   Future machineHoldWithHttpInfo(String machineId, String userId, DateTime timestamp) async {
     Object postBody;
 
@@ -347,7 +347,7 @@ class MachineApi {
 
   /// Holds the machine
   ///
-  /// Holds the machine for the given user for 3 minutes.
+  /// Holds the machine for the given user for 10 minutes.
   Future machineHold(String machineId, String userId, DateTime timestamp) async {
     Response response = await machineHoldWithHttpInfo(machineId, userId, timestamp);
     if(response.statusCode >= 400) {
@@ -361,15 +361,15 @@ class MachineApi {
   /// Pay for the given machine with HTTP info returned
   ///
   /// Pays for the given machine. In order to be able to pay for a machine, the user must be holding the machine in question. 
-  Future machinePayWithHttpInfo(String machineId, String userId) async {
+  Future machinePayWithHttpInfo(String machineId, String cardId) async {
     Object postBody;
 
     // verify required params are set
     if(machineId == null) {
      throw ApiException(400, "Missing required param: machineId");
     }
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if(cardId == null) {
+     throw ApiException(400, "Missing required param: cardId");
     }
 
     // create path and map variables
@@ -379,7 +379,7 @@ class MachineApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "userId", userId));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "cardId", cardId));
 
     List<String> contentTypes = [];
 
@@ -409,8 +409,8 @@ class MachineApi {
   /// Pay for the given machine
   ///
   /// Pays for the given machine. In order to be able to pay for a machine, the user must be holding the machine in question. 
-  Future machinePay(String machineId, String userId) async {
-    Response response = await machinePayWithHttpInfo(machineId, userId);
+  Future machinePay(String machineId, String cardId) async {
+    Response response = await machinePayWithHttpInfo(machineId, cardId);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {

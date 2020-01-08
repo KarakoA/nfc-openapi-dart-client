@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUsers**](UserApi.md#addUsers) | **POST** /user | Adds a new user
 [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /user/{userId} | Deletes a user
+[**getUserByCardId**](UserApi.md#getUserByCardId) | **GET** /user/findByCardId | Find user by card ID
 [**getUserById**](UserApi.md#getUserById) | **GET** /user/{userId} | Find user by ID
 [**listUsers**](UserApi.md#listUsers) | **GET** /user | Lists all users
 [**userBalance**](UserApi.md#userBalance) | **GET** /user/{userId}/balance | Check the user&#39;s balance
@@ -96,6 +97,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getUserByCardId**
+> String getUserByCardId(cardId)
+
+Find user by card ID
+
+Returns a single user ID, who is the owner of the card with the given ID.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: api_key
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('api_key').apiKeyPrefix = 'Bearer';
+
+var api_instance = UserApi();
+var cardId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | ID of card
+
+try { 
+    var result = api_instance.getUserByCardId(cardId);
+    print(result);
+} catch (e) {
+    print("Exception when calling UserApi->getUserByCardId: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cardId** | [**String**](.md)| ID of card | [default to null]
+
+### Return type
+
+**String**
 
 ### Authorization
 
